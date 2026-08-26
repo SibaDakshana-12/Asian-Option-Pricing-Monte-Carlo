@@ -178,7 +178,7 @@ $$
 and
 
 $$
-P_0 = e^{-rT}\mathbb{E}^{\mathbb{Q}} \left[ \max(K-\bar{S},0) \right]
+P_0 = e^{-rT}\mathbb{E}^{\mathbb{Q}} \left[\max(K-\bar{S},0)\right]
 $$
 
 ---
@@ -188,7 +188,7 @@ $$
 With $M$ simulated paths, the Asian call price is estimated as:
 
 $$
-\hat{C} = e^{-rT} \frac{1}{M} \sum_{j=1}^{M} \max(\bar{S}_j-K,0)
+\hat{C} = e^{-rT} \frac{1}{M} \sum_{j=1}^{M}\max(\bar{S}_j-K,0)
 $$
 
 Similarly, the Asian put price is:
@@ -220,7 +220,7 @@ where $s_X$ is the sample standard deviation of the simulated payoff.
 The approximate 95% confidence interval is:
 
 $$
-CI_{95\%} = \left[\hat{V}-1.96SE,\;\hat{V}+1.96SE\right]
+CI_{95\%} = \left[\hat{V}-1.96SE,\hat{V}+1.96SE\right]
 $$
 
 where $\hat{V}$ represents either the call or put price.
@@ -353,7 +353,7 @@ A positive value indicates that the Antithetic Variates estimator has lower vari
 For each strike price:
 
 $$
-K=90,\;105,\;110
+K=90, 105, 110
 $$
 
 the project compares:
