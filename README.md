@@ -220,7 +220,7 @@ where $s_X$ is the sample standard deviation of the simulated payoff.
 The approximate 95% confidence interval is:
 
 $$
-CI_{95\%} = [\hat{V} - 1.96\,SE,\; \hat{V} + 1.96\,SE]
+CI_{95\text{\%}} = [\hat{V} - 1.96SE,\; \hat{V} + 1.96SE]
 $$
 
 where $\hat{V}$ represents either the call or put price.
@@ -276,7 +276,7 @@ An increase in $S_0$ generally:
 For:
 
 $$
-\sigma \in \{0.10,\0.20,\0.30\}
+\sigma \in \{0.10, 0.20, 0.30\}
 $$
 
 the Asian call and put prices are calculated using:
