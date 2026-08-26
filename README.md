@@ -112,7 +112,7 @@ $$
 and:
 
 $$
-\Delta t=\frac{T}{N}
+\Delta t = \frac{T}{N}
 $$
 
 ---
@@ -134,21 +134,13 @@ $$
 giving:
 
 $$
-S_{t+\Delta t}
-=
-S_t
-\exp
-\left[
-\left(r-\frac{1}{2}\sigma^2\right)\Delta t
-+
-\sigma\sqrt{\Delta t}Z
-\right]
+S_{t+\Delta t} = S_t\exp\left[\left(r-\frac{1}{2}\sigma^2\right)\Delta t + \sigma\sqrt{\Delta t}Z \right]
 $$
 
 with:
 
 $$
-r=5\%
+r = 5\%
 $$
 
 The same random shocks are used when generating the 10 real-world and risk-neutral visualization paths so that the comparison isolates the effect of the different drift rates.
@@ -160,10 +152,7 @@ The same random shocks are used when generating the 10 real-world and risk-neutr
 For an arithmetic-average Asian option, the average underlying price is:
 
 $$
-\bar{S}
-=
-\frac{1}{N}
-\sum_{i=1}^{N}S_{t_i}
+\bar{S} = \frac{1}{N} \sum_{i=1}^{N}S_{t_i}
 $$
 
 The implementation uses the **126 simulated daily prices** and excludes the initial price $S_0$ from the averaging calculation.
@@ -171,31 +160,25 @@ The implementation uses the **126 simulated daily prices** and excludes the init
 ### Asian Call Payoff
 
 $$
-C_T=\max(\bar{S}-K,0)
+C_T = \max(\bar{S}-K,0)
 $$
 
 ### Asian Put Payoff
 
 $$
-P_T=\max(K-\bar{S},0)
+P_T = \max(K-\bar{S},0)
 $$
 
 The corresponding risk-neutral prices are:
 
 $$
-C_0=e^{-rT}\mathbb{E}^{\mathbb{Q}}
-\left[
-\max(\bar{S}-K,0)
-\right]
+C_0 = e^{-rT}\mathbb{E}^{\mathbb{Q}} \left[\max(\bar{S}-K,0)\right]
 $$
 
 and
 
 $$
-P_0=e^{-rT}\mathbb{E}^{\mathbb{Q}}
-\left[
-\max(K-\bar{S},0)
-\right]
+P_0 = e^{-rT}\mathbb{E}^{\mathbb{Q}} \left[ \max(K-\bar{S},0) \right]
 $$
 
 ---
@@ -205,29 +188,19 @@ $$
 With $M$ simulated paths, the Asian call price is estimated as:
 
 $$
-\hat{C}
-=
-e^{-rT}
-\frac{1}{M}
-\sum_{j=1}^{M}
-\max(\bar{S}_j-K,0)
+\hat{C} = e^{-rT} \frac{1}{M} \sum_{j=1}^{M} \max(\bar{S}_j-K,0)
 $$
 
 Similarly, the Asian put price is:
 
 $$
-\hat{P}
-=
-e^{-rT}
-\frac{1}{M}
-\sum_{j=1}^{M}
-\max(K-\bar{S}_j,0)
+\hat{P} = e^{-rT} \frac{1}{M} \sum_{j=1}^{M}\max(K-\bar{S}_j,0)
 $$
 
 The project uses:
 
 $$
-M=100,000
+M = 100,000
 $$
 
 Monte Carlo simulations.
@@ -239,10 +212,7 @@ Monte Carlo simulations.
 For simulated payoffs $X_1,\ldots,X_M$, the standard error of the Monte Carlo estimator is:
 
 $$
-SE
-=
-e^{-rT}
-\frac{s_X}{\sqrt{M}}
+SE = e^{-rT}\frac{s_X}{\sqrt{M}}
 $$
 
 where $s_X$ is the sample standard deviation of the simulated payoff.
@@ -250,12 +220,7 @@ where $s_X$ is the sample standard deviation of the simulated payoff.
 The approximate 95% confidence interval is:
 
 $$
-CI_{95\%}
-=
-\left[
-\hat{V}-1.96SE,\;
-\hat{V}+1.96SE
-\right]
+CI_{95\%} = \left[\hat{V}-1.96SE,\;\hat{V}+1.96SE\right]
 $$
 
 where $\hat{V}$ represents either the call or put price.
@@ -347,34 +312,19 @@ $$
 The paired call payoff estimator is:
 
 $$
-X_C^{AV}
-=
-\frac{1}{2}
-\left(
-X_C(Z)+X_C(-Z)
-\right)
+X_C^{AV} = \frac{1}{2}\left(X_C(Z)+X_C(-Z)\right)
 $$
 
 and the paired put payoff estimator is:
 
 $$
-X_P^{AV}
-=
-\frac{1}{2}
-\left(
-X_P(Z)+X_P(-Z)
-\right)
+X_P^{AV} = \frac{1}{2}\left(X_P(Z)+X_P(-Z)\right)
 $$
 
 The final estimator is:
 
 $$
-\hat{V}_{AV}
-=
-e^{-rT}
-\frac{1}{M/2}
-\sum_{j=1}^{M/2}
-X_j^{AV}
+\hat{V}_{AV} = e^{-rT}\frac{1}{M/2}\sum_{j=1}^{M/2}X_j^{AV}
 $$
 
 where $M/2$ is the number of antithetic pairs.
@@ -386,14 +336,7 @@ where $M/2$ is the number of antithetic pairs.
 The percentage variance reduction is calculated as:
 
 $$
-\text{Variance Reduction}
-=
-\left(
-1-
-\frac{SE_{AV}^2}
-{SE_{MC}^2}
-\right)
-\times100
+\text{Variance Reduction} = \left(1-\frac{SE_{AV}^2}{SE_{MC}^2}\right)\times100
 $$
 
 where:
