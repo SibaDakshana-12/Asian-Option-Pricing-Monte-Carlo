@@ -100,15 +100,7 @@ where:
 The exact GBM discretization used for simulation is:
 
 $$
-S_{t+\Delta t}
-=
-S_t
-\exp
-\left[
-\left(\mu-\frac{1}{2}\sigma^2\right)\Delta t
-+
-\sigma\sqrt{\Delta t}Z
-\right]
+S_{t+\Delta t}=S_t\exp\left[\left(\mu-\frac{1}{2}\sigma^2\right)\Delta t + \sigma\sqrt {\Delta t} Z\right]
 $$
 
 where:
